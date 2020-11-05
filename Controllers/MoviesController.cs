@@ -44,5 +44,11 @@ namespace Vidly1.Controllers
 
             return Content(String.Format("Page Index: {0}, Sort by: {1}",pageIndex,sortBy));
         }
+
+       
+        public ActionResult ByReleaseDate(int year,int month)
+        {
+            return Content(String.Format("Year {0}, Month: {1}",year,month));
+        }
     }
-}
+} 
