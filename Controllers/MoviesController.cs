@@ -46,6 +46,7 @@ namespace Vidly1.Controllers
         }
 
        
+        [Route("movies/released/{year:regex(\\d{4}):range(2015,2020)}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year,int month)
         {
             return Content(String.Format("Year {0}, Month: {1}",year,month));
