@@ -19,12 +19,30 @@ namespace Vidly1.Controllers
                 Name= "3 Idiots"
             };
 
-            //return View(movie);
-            //return Content("Hello World");
-            //return HttpNotFound();
-            //return new EmptyResult();
-            return RedirectToAction("Index","Home", new { page=1, sortBy="name"});
-            //RedirectToAction(Name of the action ,Controller, extra data);
+            return View(movie);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return Content("ID is: "+id);
+        }
+
+        public ActionResult Index(int? pageIndex,string sortBy)
+        {
+            //if user does not provide any argument
+            //we have to make pageIndex null able
+            //string does not create any problem because it is refrence type
+
+            if (!pageIndex.HasValue)
+            {
+                pageIndex = 1;
+            }
+            if(String.IsNullOrWhiteSpace(sortBy))
+            {
+                sortBy = "name";
+            }
+
+            return Content(String.Format("Page Index: {0}, Sort by: {1}",pageIndex,sortBy));
         }
     }
 }
